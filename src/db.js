@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 
-const DB_PATH = new URL("../db.json", import.meta.url).pathname;
+const DB_PATH = new URL('../db.json', import.meta.url).pathname.slice(1)  // I had to add slice because othewise it duplicated /C: path
 
 export const getDB = async () => {
   const db = await fs.readFile(DB_PATH, "utf-8");
